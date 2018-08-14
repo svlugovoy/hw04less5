@@ -1,0 +1,41 @@
+<div  class="card"  [ngClass]="{'bg-secondary': editPostId === post.id}">
+  <div class="card-body">
+    <h5 class="card-title">{{ post.title }}</h5>
+    <p class="card-text">{{ post.body }}</p>
+
+    <a href="#" (click)="showCommentsForPost(post)" class="btn btn-primary">Comments</a>
+    <a href="#" (click)="onDelete(post.id)" *ngIf="isAdmin" class="btn btn-danger">Delete Post</a>
+    <a href="#" (click)="onEdit(post)" *ngIf="!editPostId"class="btn btn-warning">Edit</a>
+    <a href="#" (click)="onCancel()" *ngIf="editPostId"class="btn btn-warning">Cancel</a>
+
+    <div [hidden]="!post.showComments">
+
+      <ngx-spinner
+        bdColor="rgba(51, 51, 51, 0.6)"
+        size="large"
+        color="#fff"
+        type="ball-atom"
+      ></ngx-spinner>
+
+      <div *ngIf="post.comments">
+
+        <ul>
+          <li *ngFor="let c of post.comments">
+            <p>{{ c.name }}</p>
+            <p>{{ c.email }}</p>
+            <p>{{ c.body }}</p>
+          </li>
+        </ul>
+
+        <div *ngIf="post.comments.length === 0">
+          <div class="alert alert-info">No comment yet.</div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+

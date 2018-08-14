@@ -1,0 +1,11 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">HW04 from lesson 5</a>
+
+    <div class="navbar-text">
+      Total Posts:
+      <span [ngStyle]="{'color': (postsCount % 2 === 0) ? 'red' : 'green', 'font-weight' : 'bold'}">{{ postsCount }}</span>
+       | Today Date:
+      <span [ngStyle]="{'color': 'white'}">{{ today | date : 'mediumDate' }}</span>
+    </div>
+
+</nav>

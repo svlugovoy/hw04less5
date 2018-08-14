@@ -1,0 +1,14 @@
+<app-add-post-form (onAddPostEE)="onAddPost($event)" (onEditPostEE)="onEditPost($event)"></app-add-post-form>
+
+<div class="row">
+  <p>PostsCount in list component: {{ postsCount }}</p>
+</div>
+
+<div class="row">
+
+  <app-post-item class="col-md-6 mb-3" *ngFor="let post of posts"
+                 [post]="post" (deletePost)="onDeletePost($event)"></app-post-item>
+
+</div>
+
+
